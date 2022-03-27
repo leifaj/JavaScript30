@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Drum Kit</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet"></head>
+<body>
+
+
+  <div class="keys">
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+      <span class="sound">RM</span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+      <span class="sound">Jin</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>D</kbd>
+      <span class="sound">Suga</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd>
+      <span class="sound">J-Hope</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>G</kbd>
+      <span class="sound">Jimin</span>
+    </div>
+    <div data-key="72" class="key">
+      <kbd>H</kbd>
+      <span class="sound">V</span>
+    </div>
+    <div data-key="74" class="key">
+      <kbd>J</kbd>
+      <span class="sound">Jungkook</span>
+    </div>
+    <div data-key="75" class="key">
+      <kbd>K</kbd>
+      <span class="sound">Intro (Korean)</span>
+    </div>
+    <div data-key="76" class="key">
+      <kbd>L</kbd>
+      <span class="sound">Intro (English)</span>
+    </div>
+  </div>
+
+  <audio data-key="65" src="sounds/RM.m4a"></audio>
+  <audio data-key="83" src="sounds/Jin.m4a"></audio>
+  <audio data-key="68" src="sounds/Suga.m4a"></audio>
+  <audio data-key="70" src="sounds/J-Hope.m4a"></audio>
+  <audio data-key="71" src="sounds/Jimin.m4a"></audio>
+  <audio data-key="72" src="sounds/V.m4a"></audio>
+  <audio data-key="74" src="sounds/Jungkook.m4a"></audio>
+  <audio data-key="75" src="sounds/Intro-Korean.m4a"></audio>
+  <audio data-key="76" src="sounds/Intro-English.m4a"></audio>
+
+<script>
+
+  function playSound(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); // Select audio element
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`); // Select div element
+    if(!audio) return; // Stop function from running if invalid key is pressed
+    audio.currentTime = 0; // Rewind current audio to the beginning
+    audio.play();
+    key.classList.add('playing');
+  }
+
+  function removeTransition(e) {
+    if (e.propertyName !== 'transform') return; // Skip if transition event is not transform
+    this.classList.remove('playing'); 
+  }
+
+  const keys = document.querySelectorAll('.key'); // Get node list with all elements with class 'key'
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition)); // Add event listener to each key when transition ends
+  window.addEventListener('keydown', playSound); // Play sound when a key is pressed
+</script>
+
+
+</body>
+</html>
