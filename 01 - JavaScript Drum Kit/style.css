@@ -2,6 +2,7 @@ html {
   font-size: 10px;
   background: url('./bts_concert.jpg') bottom center;
   background-size: cover;
+  min-height: 100vh;
 }
 
 body,html {
@@ -10,18 +11,38 @@ body,html {
   font-family: 'Raleway', sans-serif;
 }
 
+h1 {
+  font-size: 5rem;
+  color: #ffffff;
+  text-align: center;
+  padding-top: 50px;
+  font-weight: 700;
+}
+
+h2 {
+  display: block;
+  color: white;
+  font-size: 3rem;
+  text-align: center;
+  background-color: rgba(0,0,0,0.5);
+  padding: 1rem;
+  font-weight: 700;
+}
+
+p {
+  display: none;
+}
+
 .keys {
   display: flex;
-  flex: 1;
-  min-height: 100vh;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
 .key {
   border: .4rem solid black;
   border-radius: .5rem;
-  margin: 1rem;
+  margin: 4rem 1rem 23rem 1rem;
   font-size: 1.5rem;
   padding: 1rem .5rem;
   transition: all .08s ease;
@@ -30,25 +51,34 @@ body,html {
   color: white;
   background: rgba(0,0,0,0.65);
   text-shadow: 0 0 .5rem black;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100px;
 }
 
 .playing {
   transform: scale(1.1);
-  border-color: #b370ff;
-  box-shadow: 0 0 1.1rem #b370ff;
+  border-color: #c390fd;
+  box-shadow: 0 0 2rem #c390fd;
 }
+
 
 kbd {
   display: block;
-  font-size: 4rem;
+  font-size: 5rem;
   font-family: 'Raleway', sans-serif;
+  font-weight: 700;
 }
 
 .sound {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
   letter-spacing: .1rem;
   color: #d3acff;
+  font-weight: 700;
+  padding-top: 1rem;
 }
 
 /* mobile view */

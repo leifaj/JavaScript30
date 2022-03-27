@@ -2,52 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>JS Drum Kit</title>
+  <title>BTS Introduction Soundboard</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet"></head>
-<body>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;800&display=swap" rel="stylesheet"><body>
 
-
+  <h1>BTS Introduction Soundboard</h1>
   <div class="keys">
     <div data-key="65" class="key">
       <kbd>A</kbd>
       <span class="sound">RM</span>
+      <p>Okay and I'm RM!</p>
     </div>
     <div data-key="83" class="key">
       <kbd>S</kbd>
       <span class="sound">Jin</span>
+      <p>Hello my name is Jin it's Worldwide Handsome.</p>
     </div>
     <div data-key="68" class="key">
       <kbd>D</kbd>
       <span class="sound">Suga</span>
+      <p>Hi guys...I'm Suga.</p>
     </div>
     <div data-key="70" class="key">
       <kbd>F</kbd>
       <span class="sound">J-Hope</span>
+      <p>Hi! I'm your hope, you're my hope, I'm J-Hope.</p>
     </div>
     <div data-key="71" class="key">
       <kbd>G</kbd>
       <span class="sound">Jimin</span>
+      <p>Hello my name is...Jimin.</p>
     </div>
     <div data-key="72" class="key">
       <kbd>H</kbd>
       <span class="sound">V</span>
+      <p>Hellooo my name is V.</p>
     </div>
     <div data-key="74" class="key">
       <kbd>J</kbd>
       <span class="sound">Jungkook</span>
+      <p>Nice to meet you guys I'm Jungkoooook.</p>
     </div>
     <div data-key="75" class="key">
       <kbd>K</kbd>
       <span class="sound">Intro (Korean)</span>
+      <p>2 3 방...탄! 안녕하세요 방탄소년단입니다!</p>
     </div>
     <div data-key="76" class="key">
       <kbd>L</kbd>
       <span class="sound">Intro (English)</span>
+      <p>Hello we are BTS!</p>
     </div>
   </div>
+
+  <h2 class="subtitles"></h2>
 
   <audio data-key="65" src="sounds/RM.m4a"></audio>
   <audio data-key="83" src="sounds/Jin.m4a"></audio>
@@ -60,11 +70,21 @@
   <audio data-key="76" src="sounds/Intro-English.m4a"></audio>
 
 <script>
+  const audios = document.querySelectorAll('audio'); // Select all audio elements
+
+  function stopAllAudio() {
+    audios.forEach(item => item.pause())
+  }
 
   function playSound(e) {
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); // Select audio element
     const key = document.querySelector(`.key[data-key="${e.keyCode}"]`); // Select div element
+    const subtitle = document.querySelector(`div[data-key="${e.keyCode}"] p`);
+    document.querySelector('h2').innerText = subtitle.innerText;
+
     if(!audio) return; // Stop function from running if invalid key is pressed
+    stopAllAudio(); // Stop all audio before playing a new audio
+
     audio.currentTime = 0; // Rewind current audio to the beginning
     audio.play();
     key.classList.add('playing');
@@ -72,7 +92,7 @@
 
   function removeTransition(e) {
     if (e.propertyName !== 'transform') return; // Skip if transition event is not transform
-    this.classList.remove('playing'); 
+    this.classList.remove('playing');
   }
 
   const keys = document.querySelectorAll('.key'); // Get node list with all elements with class 'key'
