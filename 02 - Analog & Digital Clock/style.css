@@ -1,5 +1,5 @@
 html {
-  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(background.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25)), url(background.jpg);
   background-size: cover;
   font-family: 'helvetica neue';
   text-align: center;
@@ -20,16 +20,12 @@ body {
   width: 30rem;
   height: 30rem;
   border: 15px solid white;
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 50%;
   margin: 50px auto;
   position: relative;
   padding: 2rem;
-  box-shadow:
-    0 0 0 4px rgba(195, 88, 160, 0.2),
-    inset 0 0 0 13px rgb(195, 88, 160),
-    inset 0 0 10px rgb(195, 88, 160),
-    0 0 10px rgba(195, 88, 160, 0.6),
-}
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;}
 
 .clock-face {
   position: relative;
@@ -40,29 +36,19 @@ body {
 
 .hand {
   width: 50%;
-  height: 6px;
-  background: rgb(255, 255, 255);
+  height: 3.5px;
+  background: rgb(0, 0, 0);
   position: absolute;
   top: 50%;
-  transform-origin: 100%; /* change pivot origin to be the end of the hand */
+  right: 40%;
+  transform-origin: 80%; /* change pivot origin */
   transform: rotate(90deg);
 }
 
 .second-hand {
   width: 50%;
-  height: 2px;
-  background: #fbeda6;
+  background: #be5b54;
   z-index: -1;
-}
-
-.min-hand {
-  height: 6px;
-  background: #ff8a84;
-}
-
-.hour-hand {
-  height: 6px;
-  background: #ff79f0;
 }
 
 .digitalTime {
