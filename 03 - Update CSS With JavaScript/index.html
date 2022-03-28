@@ -2,24 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Scoped CSS Variables and JS</title>
+  <title>JS Photo Editor</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Update CSS Variables with <span class='hl'>JavaScript</span></h2>
+  <h2>Photo Editor with <span class='hl'>JavaScript</span></h2>
 
-  <div class="controls">
-    <label for="spacing">Spacing:</label>
-    <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-unit="px">
-
-    <label for="blur">Blur:</label>
-    <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-unit="px">
-
-    <label for="base">Base Color: </label>
-    <input id="base" type="color" name="base" value="#f74f9e">
+  <div class="container">
+    <div class="controls">
+      <div class="control">
+        <label for="base">Base Color: </label>
+        <input id="base" type="color" name="base" value="#f74f9e">
+      </div>
+      <div class="control">
+        <label for="opacity">Opacity:</label>
+        <input id="opacity" type="range" name="opacity" min="10" max="100" value="100" data-unit="%">  
+      </div>
+      <div class="control">
+        <label for="blur">Blur:</label>
+        <input id="blur" type="range" name="blur" min="0" max="25" value="0" data-unit="px">
+      </div>
+      <div class="control">
+        <label for="brightness">Brightness: </label>
+        <input id="brightness" type="range" name="brightness" min="10" max="150" value="100" data-unit="%">
+      </div>
+      <div class="control">
+        <label for="contrast">Contrast: </label>
+        <input id="contrast" type="range" name="contrast" min="10" max="200" value="100" data-unit="%">
+      </div>
+      <div class="control">
+        <label for="hue">Hue Rotation: </label>
+        <input id="hue" type="range" name="hue" min="0" max="300" value="0" data-unit="deg">
+      </div>
+      <div class="control">
+        <label for="radius">Round Corners: </label>
+        <input id="radius" type="range" name="radius" min="0" max="50" value="0" data-unit="%">
+      </div>
+    </div>
+  
+    <img src="./img.jpeg">
   </div>
-
-  <img src="./img.jpeg">
 
   <script>
     const inputs = document.querySelectorAll('.controls input');

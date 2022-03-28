@@ -1,16 +1,20 @@
 :root {
   --base: #f74f9e;
-  --spacing: 10px;
-  --blur: 10px;
+  --opacity: 100%;
+  --blur: 0px;
+  --brightness: 100%;
+  --contrast: 100%;
+  --radius: 0deg;
 }
 
 img {
-  padding: var(--spacing);
+  padding: 10px;
   background: var(--base);
-  filter: blur(var(--blur));
+  filter: opacity(var(--opacity)) blur(var(--blur)) brightness(var(--brightness)) contrast(var(--contrast)) hue-rotate(var(--hue));
   max-width: 60%;
   height: auto;
   margin: 1rem;
+  border-radius: var(--radius);
 }
 
 .hl {
@@ -22,16 +26,17 @@ h2 {
 }
 
 label {
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 body {
   text-align: center;
-  background: #202020;
+  background: #000000;
   color: white;
   font-family: 'helvetica neue', sans-serif;
   font-weight: 100;
   font-size: 50px;
+  padding: 0.5em;
 }
 
 .controls {
@@ -40,4 +45,29 @@ body {
 
 input {
   width: 100px;
+}
+
+.container,
+.controls,
+.control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  gap: 10px;
+}
+
+.container div {
+  flex-basis: 45%;
+}
+
+.controls {
+  flex-flow: column wrap;
+  gap: 0.3em;
+}
+
+.control {
+  gap: 0.3em;
 }
