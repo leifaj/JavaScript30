@@ -1,0 +1,122 @@
+html {
+  box-sizing: border-box;
+  background: #140c24;
+  background-image: url(images/background.jpg);
+  font-family: 'helvetica neue';
+  font-size: 20px;
+  font-weight: 200;
+}
+
+body {
+  margin: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+header img {
+  max-width: 30%;
+}
+
+.panels {
+  display: flex;
+  min-height: 80vh;
+  overflow: hidden;
+  margin: 0 6rem 6rem 6rem;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;}
+
+.panel {
+  background: #ffffff;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+
+  box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  transition:
+    flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    background 0.2s;
+  flex: 1;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.panel1 { 
+  background-color: #ffe590;
+  background-image:url(images/aaron-t.png);
+}
+
+.panel2 {
+  background-color: #ffc1cf;
+  background-image:url(images/aaron-z.png);
+}
+
+.panel3 {
+  background-color: #edf5a8;
+  background-image:url(images/robaire.png);
+}
+
+.panel4 {
+  background-color: #ffc7b8;
+  background-image:url(images/taeyoung.png);
+}
+
+.panel5 {
+  background-color: #b4e7fb;
+  background-image:url(images/jesse.png);
+}
+
+/* Flex Children */
+.panel > * {
+  margin: 0;
+  width: 100%;
+  transition: transform 0.5s;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  object-fit: scale-down;
+  width: 50%;
+  transform: translateY(-100%); /* Move out of frame */
+}
+
+.placeholder { /* Help scale images on transition, do not display */
+  object-fit: scale-down;
+  height: 20rem;
+  align-self: center;
+  opacity: 0%;
+}
+
+.panel.open {
+  flex: 3.5; /* Make the open panel wider */
+  box-shadow: inset 0px -135px 128px -108px rgba(26,14,74,1);
+}
+
+.panel.open-active > img {
+  transform: translateY(5%); /* Move back into frame */
+}
+
+@media all and (max-width: 600px) {
+  .panel.open-active > img {
+    padding-top: 10rem;
+    transform: translateY(20%); /* Move back into frame */
+  }
+}
+
+
